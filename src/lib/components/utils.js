@@ -82,6 +82,15 @@ export const mutateObjectProperties = (object, newData) => {
   return object;
 };
 
+// reorder form layout from drag and drop
+export const reorderFormLayout = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
 /* *****************************  Validations *********************************** */
 
 export const getIsFieldValid = (field) => {

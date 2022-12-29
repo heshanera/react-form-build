@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { get, isEmpty, noop } from 'lodash-es';
 import PropTypes from 'prop-types';
-import { FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowDown, FaArrowUp, FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
 import {
   getAvailableColumnWidth,
   getColumnWidthClass,
   getEditSelectModeClasses,
   getIsFormLayoutEdit,
   mutateObjectProperties,
+  reorderFormLayout,
   showEditButtons,
 } from '../utils';
 
@@ -51,6 +52,13 @@ const FormLayout = (props) => {
       const updatedValue = { ...value };
       updatedValue[fieldId] = fieldValue;
       setValue(updatedValue);
+    }
+  };
+
+  const handleReorderLayout = (currentPos, newPos) => () => {
+    if (currentPos + newPos >= 0) {
+      const orderedLayout = reorderFormLayout(layout, currentPos, newPos);
+      setLayout(orderedLayout);
     }
   };
 
@@ -115,7 +123,7 @@ const FormLayout = (props) => {
     </div>
   );
 
-  return (
+  const renderLayoutEditMode = () => (
     <>
       {popoverTarget && (
         <AddUpdatePopover
@@ -133,7 +141,32 @@ const FormLayout = (props) => {
             layout.map((row, rowIndex) => {
               const emptySpace = getAvailableColumnWidth(row);
               return (
-                <div className="row" key={get(row, '[0].id')}>
+                <div
+                  className="row form-row form-row-editable"
+                  key={get(row, '[0].id')}
+                  id={get(row, '[0].id')}
+                  data-rowindex={rowIndex}
+                >
+                  {getIsFormLayoutEdit(formState) && (
+                    <div className="">
+                      <div className="row-position-button" aria-label="First group">
+                        <button
+                          onClick={handleReorderLayout(rowIndex, rowIndex - 1)}
+                          className="position-btn left-button"
+                          type="button"
+                        >
+                          <FaArrowUp />
+                        </button>
+                        <button
+                          onClick={handleReorderLayout(rowIndex, rowIndex + 1)}
+                          className="position-btn right-button"
+                          type="button"
+                        >
+                          <FaArrowDown />
+                        </button>
+                      </div>
+                    </div>
+                  )}
                   {row.map((column, colIndex) => {
                     const editSelectModeClasses = getEditSelectModeClasses(
                       formState,
@@ -150,7 +183,7 @@ const FormLayout = (props) => {
                       </div>
                     );
                   })}
-                  {emptySpace && (
+                  {emptySpace && getIsFormLayoutEdit(formState) && (
                     <div className={`form-element add-elem-popup-btn-container ${emptySpace}`}>
                       {renderAddElementPopupButton(rowIndex, null)}
                     </div>
@@ -160,13 +193,32 @@ const FormLayout = (props) => {
             })}
         </div>
         {getIsFormLayoutEdit(formState) && (
-          <div className="row">
+          <div className="row form-row-editable">
             <div className="form-element">{renderAddElementPopupButton(null, null)}</div>
           </div>
         )}
       </div>
     </>
   );
+
+  const renderFormViewAndEditMode = () => (
+    <div className="container">
+      <div>
+        {Array.isArray(layout) &&
+          layout.map((row, rowIndex) => (
+            <div className="row form-row" key={get(row, '[0].id')} id={get(row, '[0].id')} data-rowindex={rowIndex}>
+              {row.map((column, colIndex) => (
+                <div className={`form-element ${getColumnWidthClass(column.width)}`} key={column.id}>
+                  {renderField(column, rowIndex, colIndex)}
+                </div>
+              ))}
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+
+  return getIsFormLayoutEdit(formState) ? renderLayoutEditMode() : renderFormViewAndEditMode();
 };
 
 FormLayout.propTypes = {
