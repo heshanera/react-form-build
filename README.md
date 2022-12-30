@@ -54,7 +54,7 @@ Sample Element: [Number Input](https://github.com/heshanera/react-form-generator
 | FieldPropertiesControl  | ```React Component```  | Rendering logic for the field select view |
 <br/>
 
-## Running Locally with storybook
+## Running Locally with Storybook
 
 ```bash
 ~$ npm install
