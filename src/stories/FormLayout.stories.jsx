@@ -6,7 +6,20 @@ import NumberInput from './assets/NumberInput';
 export default {
   title: 'Components/Form Layout',
   component: FormGenerator,
-  argTypes: { setLayout: { type: 'function', default: () => {} } },
+  argTypes: {
+    setLayout: { description: '```func```', type: 'function', default: () => {} },
+    formState: {
+      description: '```LAYOUT_EDIT | FORM_EDIT | FORM_VIEW```',
+      type: 'string',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Editable form layout to create form elements',
+      },
+    },
+  },
 };
 
 const FromLayoutTemplate = (args) => {
