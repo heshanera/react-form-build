@@ -141,5 +141,5 @@
 }
 
 .add-element-popup {
-  width: 400px;
+  min-width: 350px;
 }
