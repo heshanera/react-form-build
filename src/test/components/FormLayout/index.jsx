@@ -1,10 +1,6 @@
-// TODO: update the implementation
-// TODO: integrate lint
-// TODO: get the mandatory fields for layout and field types
+// TODO: integrate storybook
 // TODO: normalize styles
-// TODO: handle drag and drop
-// TODO: view mode
-// TODO: edit mode
+
 // Test Page
 import React, { useState } from 'react';
 import { FormGenerator, FormStates } from '../../../lib';
@@ -106,7 +102,7 @@ const TestPage = () => {
 
   const renderTestPageView = () => (
     <FormGenerator
-      formState={FormStates.LAYOUT_EDIT}
+      formState={FormStates.FORM_VIEW}
       value={value}
       setValue={setValue}
       layout={form}

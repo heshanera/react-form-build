@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { isEmpty } from 'lodash-es';
 import { useState } from 'react';
+import { FORM_STATES } from '../../constants';
 
 const FIELD_PROPERTIES = {
   LABEL: 'label',
@@ -11,7 +12,7 @@ const FIELD_PROPERTIES = {
   OPTIONS: 'options',
 };
 
-const SelectControl = ({ fieldProperties, fieldValue, setFieldValue }) => {
+const SelectControl = ({ fieldProperties, fieldValue, setFieldValue, formState }) => {
   const { label, isMandatory, options } = fieldProperties;
 
   const handleValueChange = (e) => {
@@ -24,7 +25,12 @@ const SelectControl = ({ fieldProperties, fieldValue, setFieldValue }) => {
   return (
     <>
       <Form.Label>{`${labelDisplayValue} ${isMandatory ? '*' : ''}`}</Form.Label>
-      <Form.Select value={value} onChange={handleValueChange} aria-label="">
+      <Form.Select
+        disabled={formState === FORM_STATES.FORM_VIEW}
+        value={value}
+        onChange={handleValueChange}
+        aria-label=""
+      >
         {Object.values(options || []).map((optionValue) => (
           <option key={optionValue.value} value={optionValue.value}>
             {optionValue.label}
@@ -143,6 +149,7 @@ SelectControl.propTypes = {
   fieldValue: PropTypes.string,
   setFieldValue: PropTypes.func.isRequired,
   fieldProperties: PropTypes.object.isRequired,
+  formState: PropTypes.string.isRequired,
 };
 
 SelectControl.defaultProps = {

@@ -104,6 +104,7 @@ const FormLayout = (props) => {
             setProperties={(newData) => mutateObjectProperties(fieldProperties, newData)}
             fieldValue={get(value, id, null)}
             setFieldValue={handleFieldValueUpdate(id)}
+            formState={formState}
           />
         )}
       </div>

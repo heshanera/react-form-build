@@ -1,13 +1,14 @@
 import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { isEmpty, isNil } from 'lodash-es';
+import { FORM_STATES } from '../../constants';
 
 const FIELD_PROPERTIES = {
   LABEL: 'label',
   IS_MANDATORY: 'isMandatory',
 };
 
-const InputControl = ({ fieldProperties, fieldValue, setFieldValue }) => {
+const InputControl = ({ fieldProperties, fieldValue, setFieldValue, formState }) => {
   const { label, isMandatory } = fieldProperties;
 
   const handleValueChange = (e) => {
@@ -19,7 +20,12 @@ const InputControl = ({ fieldProperties, fieldValue, setFieldValue }) => {
   return (
     <>
       <Form.Label>{`${labelDisplayValue} ${isMandatory ? '*' : ''}`}</Form.Label>
-      <Form.Control value={isNil(fieldValue) ? '' : fieldValue} type="text" onChange={handleValueChange} />
+      <Form.Control
+        disabled={formState === FORM_STATES.FORM_VIEW}
+        value={isNil(fieldValue) ? '' : fieldValue}
+        type="text"
+        onChange={handleValueChange}
+      />
     </>
   );
 };
@@ -76,6 +82,7 @@ InputControl.propTypes = {
   fieldValue: PropTypes.string,
   setFieldValue: PropTypes.func.isRequired,
   fieldProperties: PropTypes.object.isRequired,
+  formState: PropTypes.string.isRequired,
 };
 
 InputControl.defaultProps = {
