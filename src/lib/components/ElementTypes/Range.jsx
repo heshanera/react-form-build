@@ -19,7 +19,7 @@ const RangeControl = ({ fieldProperties, fieldValue, setFieldValue, formState })
   };
 
   const labelDisplayValue = isEmpty(label) ? '' : label;
-  const value = isEmpty(fieldValue) ? '' : fieldValue;
+  const value = isEmpty(fieldValue) ? min : fieldValue;
 
   return (
     <>

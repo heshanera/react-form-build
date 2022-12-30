@@ -31,6 +31,8 @@ const FormGenerator = (props) => {
         ...customTypes,
         ...DefaultElementTypes,
       });
+    } else {
+      setFieldTypes(customTypes);
     }
   }, []);
 

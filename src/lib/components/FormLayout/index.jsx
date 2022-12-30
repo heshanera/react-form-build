@@ -126,7 +126,7 @@ const FormLayout = (props) => {
 
   const renderLayoutEditMode = () => (
     <>
-      {popoverTarget && (
+      {popoverTarget && !isEmpty(fieldTypes) && (
         <AddUpdatePopover
           popoverRef={popoverRef}
           popoverTarget={popoverTarget}
