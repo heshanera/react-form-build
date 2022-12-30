@@ -1,6 +1,13 @@
 # react-form-generator
 Dynamic form generation module implemented using react. Can generate forms and interact with the generated from with view and edit modes. Layout generator has build in field element types and allows adding custom elements.
 
+## Modes
+<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/layoutEditMode.png" alt="Layout Edit" width="33%">
+  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/editMode.png" alt="Form Edit" width="33%">
+  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/viewMode.png" alt="Form View" width="33%">
+</div>
+
 ## Usage
 ```js
 const FormGenerator = () => {
