@@ -98,7 +98,7 @@ const FormLayout = (props) => {
             </button>
           </div>
         )}
-        {Control && (
+        {Control ? (
           <Control
             fieldProperties={fieldProperties}
             setProperties={(newData) => mutateObjectProperties(fieldProperties, newData)}
@@ -106,6 +106,8 @@ const FormLayout = (props) => {
             setFieldValue={handleFieldValueUpdate(id)}
             formState={formState}
           />
+        ) : (
+          <div className="error-elem">Error!</div>
         )}
       </div>
     );
@@ -126,7 +128,7 @@ const FormLayout = (props) => {
 
   const renderLayoutEditMode = () => (
     <>
-      {popoverTarget && (
+      {popoverTarget && !isEmpty(fieldTypes) && (
         <AddUpdatePopover
           popoverRef={popoverRef}
           popoverTarget={popoverTarget}

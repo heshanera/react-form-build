@@ -1,9 +1,7 @@
-// TODO: integrate storybook
-// TODO: normalize styles
-
 // Test Page
 import React, { useState } from 'react';
 import { FormGenerator, FormStates } from '../../../lib';
+import NumberInput from '../../../stories/assets/NumberInput';
 
 const layout = [
   [
@@ -102,13 +100,13 @@ const TestPage = () => {
 
   const renderTestPageView = () => (
     <FormGenerator
-      formState={FormStates.FORM_VIEW}
+      formState={FormStates.LAYOUT_EDIT}
       value={value}
       setValue={setValue}
       layout={form}
       setLayout={setFormLayout}
       allowDefaults
-      customFieldTypes={[]}
+      customFieldTypes={[NumberInput]}
     />
   );
 

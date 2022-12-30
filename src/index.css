@@ -83,6 +83,23 @@
   display: flex;
 }
 
+.error-elem {
+  background-color: #eeeeee;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px;
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap;
+}
+
+.field-error-icon {
+  margin-left: 6px;
+  color: #666666;
+}
+
 .elem-btn {
   background-color: #ffffff;
   border-radius: 6px;
@@ -142,4 +159,8 @@
 
 .add-element-popup {
   min-width: 350px;
+}
+
+.creatable-select-options {
+  /*  */
 }

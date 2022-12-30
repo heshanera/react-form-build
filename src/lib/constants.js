@@ -11,7 +11,7 @@ export const ELEMENT_ACTION_TYPE = {
 };
 
 export const FORM_STATES = Object.freeze({
-  LAYOUT_EDIT: 'Layout Edit',
-  FORM_EDIT: 'Form Edit',
-  FORM_VIEW: 'Form View',
+  LAYOUT_EDIT: 'LAYOUT_EDIT',
+  FORM_EDIT: 'FORM_EDIT',
+  FORM_VIEW: 'FORM_VIEW',
 });

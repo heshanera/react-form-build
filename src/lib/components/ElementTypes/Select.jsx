@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { isEmpty } from 'lodash-es';
 import { useState } from 'react';
 import { FORM_STATES } from '../../constants';
+import { ReactSelectStyles } from '../../styles';
 
 const FIELD_PROPERTIES = {
   LABEL: 'label',
@@ -82,6 +83,8 @@ const WithCreatableSelect = (props) => {
       onKeyDown={handleKeyDown}
       placeholder="Type option and press enter"
       value={value}
+      styles={ReactSelectStyles}
+      className="creatable-select-options"
     />
   );
 };
