@@ -7,6 +7,10 @@ on:
   push:
     branches: [ "master" ]
 
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -37,7 +41,14 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build-storybook
-      - run: npm run deploy-storybook
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: storybook-static
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+          TARGET_FOLDER: react-form-build  # The folder that we serve our Storybook files from
     
   publish-package:
     runs-on: ubuntu-latest
