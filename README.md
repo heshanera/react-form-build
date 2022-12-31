@@ -12,6 +12,9 @@ Dynamic form creation module implemented using react. Can generate forms and int
 ## Usage
 
 ```js
+import { FormGenerator, FormStates } from 'react-form-build';
+import 'react-form-build/dist/style.css';
+
 const FormGenerator = () => {
   const [form, setFormLayout] = useState([]);
   const [value, setValue] = useState({});
