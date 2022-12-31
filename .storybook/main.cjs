@@ -14,5 +14,14 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
-  }
+  },
+  "managerHead": (head, { configType }) => {
+    console.log(configType);
+    if (configType === 'PRODUCTION') {
+      return (`
+        ${head}
+        <base href="/react-form-build/">
+      `);
+    }
+  },
 }
