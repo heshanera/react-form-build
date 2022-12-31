@@ -47,6 +47,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: storybook-static # The folder the action should deploy.
+          target-folder: storybook-static
     
   publish-package:
     runs-on: ubuntu-latest
