@@ -1,5 +1,5 @@
-# react-form-generator
-Dynamic form generation module implemented using react. Can generate forms and interact with the generated from with view and edit modes. Layout generator has build in field element types and allows adding custom elements.
+# react-form-creator
+Dynamic form creation module implemented using react. Can generate forms and interact with the generated from with view and edit modes. Layout generator has build in field element types and allows adding custom elements.
 
 ## Modes
 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
