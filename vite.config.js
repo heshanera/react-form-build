@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import * as packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
@@ -13,6 +14,9 @@ export default defineConfig(() => ({
       name: 'ReactFormBuild',
       formats: ['es', 'umd'],
       fileName: (format) => `react-form-build.${format}.js`,
+    },
+    rollupOptions: {
+      external: [...Object.keys(packageJson.peerDependencies)],
     },
   },
 }));
