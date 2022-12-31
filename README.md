@@ -4,9 +4,9 @@ Dynamic form creation module implemented using react. Can generate forms and int
 ## Modes
 
 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/layoutEditMode.png" alt="Layout Edit" width="33%">
-  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/editMode.png" alt="Form Edit" width="33%">
-  <img src="https://github.com/heshanera/react-form-generator/blob/develop/assets/viewMode.png" alt="Form View" width="33%">
+  <img src="https://github.com/heshanera/assets/blob/master/react-form-creator/layoutEditMode.png" alt="Layout Edit" width="33%">
+  <img src="https://github.com/heshanera/assets/blob/master/react-form-creator/editMode.png" alt="Form Edit" width="33%">
+  <img src="https://github.com/heshanera/assets/blob/master/react-form-creator/viewMode.png" alt="Form View" width="33%">
 </div>
 
 ## Usage
