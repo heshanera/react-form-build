@@ -24,8 +24,22 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run lint
+  
+  publish-storybook:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build-storybook
+      - run: npm run deploy-storybook
     
-  publish:
+  publish-package:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
@@ -36,8 +50,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run deploy-storybook # publish story book
-    - run: npm run semantic-release # publish package
+    - run: npm run semantic-release
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
