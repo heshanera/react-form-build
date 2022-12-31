@@ -1,6 +1,9 @@
 {
   "name": "react-form-creator",
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0-development",
   "type": "module",
   "scripts": {
