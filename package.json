@@ -15,7 +15,6 @@
     "commit": "git-cz",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static",
     "semantic-release": "semantic-release --branches master"
   },
   "files": [
@@ -64,7 +63,6 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.8",
-    "gh-pages": "^4.0.0",
     "prettier": "2.8.1",
     "semantic-release": "^19.0.5",
     "vite": "^4.0.0"
