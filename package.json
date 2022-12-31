@@ -16,6 +16,18 @@
     "build-storybook": "build-storybook",
     "semantic-release": "semantic-release --branches master"
   },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/react-form-build.es.js",
+      "require": "./dist/react-form-build.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "main": "./dist/react-form-build.umd.js",
+  "module": "./dist/react-form-build.es.js",
   "dependencies": {
     "bootstrap": "^5.2.3",
     "lodash-es": "^4.17.21",
