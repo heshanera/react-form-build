@@ -14,7 +14,7 @@
     "lint": "eslint --fix --ext .js,.jsx .",
     "commit": "git-cz",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs -s src/stories/assets",
     "semantic-release": "semantic-release --branches master"
   },
   "files": [
