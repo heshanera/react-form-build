@@ -41,13 +41,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
-      - run: echo '<base href="/react-form-build/">' >> .storybook/manager-head.html
       - run: npm run build-storybook
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: storybook-static # The folder the action should deploy.
-          target-folder: storybook-static
+          folder: . # The folder the action should deploy.
     
   publish-package:
     runs-on: ubuntu-latest
