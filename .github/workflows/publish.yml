@@ -46,6 +46,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: . # The folder the action should deploy.
+          target-folder: react-form-build # The folder that we serve our Storybook files from
     
   publish-package:
     runs-on: ubuntu-latest
