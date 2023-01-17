@@ -62,6 +62,13 @@ export const showEditButtons = (target, rowIndex, colIndex) => {
   return Number(rowIndex) === Number(targetRowIndex) && Number(colIndex) === Number(targetColIndex);
 };
 
+export const handleShowPopupWithAdd = (actionType, rowIndex, colIndex, setPopoverTarget) => (e) => {
+  e.target.setAttribute('data-action-type', actionType);
+  e.target.setAttribute('data-position-row', rowIndex);
+  e.target.setAttribute('data-position-col', colIndex);
+  setPopoverTarget(e.target);
+};
+
 export const getEditSelectModeClasses = (formState, popoverTarget, rowIndex, colIndex) => {
   const editModeClasses = getIsFormLayoutEdit(formState) ? 'form-element-edit' : '';
   const selectModeClasses = showEditButtons(popoverTarget, rowIndex, colIndex) ? 'selected-element-border' : '';
