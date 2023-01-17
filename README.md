@@ -1,13 +1,14 @@
 # react-form-build
 
-[![React](https://img.shields.io/badge/React-18.2.0-%2361DBFB)](https://github.com/heshanera/react-form-build) &nbsp;
-[![NPM](https://img.shields.io/badge/NPM-8.19.2-%23CC3534)](https://github.com/heshanera/react-form-build)&nbsp;
-[![Node](https://img.shields.io/badge/Node-18.11.0-%233C873A)](https://github.com/heshanera/react-form-build)&nbsp;
+[![React](https://img.shields.io/badge/React-v18.2.0-%2361DBFB)](https://github.com/heshanera/react-form-build) &nbsp;
+[![NPM](https://img.shields.io/badge/NPM-v8.19.2-%23CC3534)](https://github.com/heshanera/react-form-build)&nbsp;
+[![Node](https://img.shields.io/badge/Node-v18.11.0-%233C873A)](https://github.com/heshanera/react-form-build)&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://github.com/heshanera/react-form-build/blob/master/LICENSE)&nbsp;
 
 Dynamic form creation module implemented using react. Can generate forms and interact with the generated from with view and edit modes. Layout generator has build in field element types and allows adding custom elements.
 
-Demo: [Storybook](https://heshanera.github.io/react-form-build)
+- Demo: [Storybook](https://heshanera.github.io/react-form-build) <br />
+- NPM: [react-form-build](https://www.npmjs.com/package/react-form-build)
 
 ## Modes
 
